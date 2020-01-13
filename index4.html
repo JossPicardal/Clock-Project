@@ -3,10 +3,10 @@
 <head>
 	<title>Clock Project</title>
 	<link rel="stylesheet" type="text/css" href="styles4.css">
-	<script src="app4.js"></script>
+	<script src="app4.js" ></script>
 </head>
 <body>
-<canvas class="face" class="gear" width="1100" height="1100" style="background-color:#333"></canvas>
+<canvas class="face"  width="1100" height="1100" ></canvas>
 
 <script>
 
@@ -25,8 +25,15 @@ function drawClock() {
 
 function drawClock(){
 	drawFace(ctx, radius);
+  drawTime(ctx, radius);
+  drawHand(ctx, pos, length, width);
 }
 
+function drawFace(ctx, radius) {
+  var grad;
+
+  <input type="clockFace" src="https://files.slack.com/files-pri/T6MPGUPFW-FSE4UFRNY/image.png" alt="picture" />
+}
 ctx.beginPath();
 ctx.arc(0, 0, radius, 0, 2 * Math.PI);
 ctx.fillStyle = 'white';
