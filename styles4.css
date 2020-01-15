@@ -119,7 +119,7 @@ p {
 
 .hour {
   position: absolute;
-  top: 34px;
+  top: 35px;
   left: 50%;
   margin-left: -4px; 
   border-left: 4px solid transparent;
@@ -132,7 +132,7 @@ p {
 
 .minute {
   position: absolute;
-  top: 26px;
+  top: 27px;
   left: 50%;
   margin-left: -4px; 
   border-left: 4px solid transparent;
@@ -145,7 +145,7 @@ p {
 
 .second {
   position: absolute;
-  top: 26px;
+  top: 27px;
   left: 50%;
   margin-left: -2px;
   border-left: 2px solid transparent;
