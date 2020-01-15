@@ -1,72 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Clock Project</title>
-	<link rel="stylesheet" type="text/css" href="styles4.css">
-	<script src="app4.js" ></script>
-</head>
-<body>
-<canvas class="face"  width="1100" height="1100" ></canvas>
+  <body>
+    <title>Clock Project</title>
+    <link rel="stylesheet" type="text/css" href="styles4.css">
+    <button onclick="getElementById('button').innerHTML=Date()">Read the time</button>
+    <p id="button"></p>
+    <div class="container">
+    <div class="clock-top-1"></div>
+    <div class="clock-top-2"></div>
+    <div class="clock-body">
+       <div class="face">
+            <div class="hour"></div>
+            <div class="minute"></div>
+            <div class="second"></div>
+            <div class="center"></div>
+            <div class="time time_12-6"></div>
+            <div class="time time_3-9"></div>
+            <div class="time time_1-7"></div>
+            <div class="time time_5-11"></div>
+            <div class="time time_2-8"></div>
+            <div class="time time_4-10"></div>          
+          </div>
+          <div class="pendulum-case">
+            <div class="pendulum-swing">
+              <div class="pendulum-rod"></div>
+              <div class="pendulum"></div>              
+            </div>
+          </div>
+      </div>
+    <div class="clock-base"></div>
+  </div>
 
-<script>
+  <script>
+    $(document).ready(function(){
+  setInterval(function(){
+    var seconds = new Date().getSeconds();
+    var sdegree = seconds * 6;
+    $('.second').css({
+       'transform': 'rotate('+ sdegree + 'deg)'
+    });
+  }, 1000);
+    
+  setInterval( function() {
+    var mins = new Date().getMinutes();
+    var mdegree = mins * 6;
+    $('.minute').css({
+      'transform': 'rotate('+ mdegree + 'deg)'
+    });
+  }, 1000);
+  
+  setInterval( function() {
+    var hours = new Date().getHours();   
+    var mins = new Date().getMinutes();
+    var hdegree = hours * 30 + (mins / 2);    
+    
+    $('.hour').css({
+      'transform': 'rotate('+ hdegree + 'deg)'
+    });
+    
+}, 1000); 
+  
+});
+  </script>
 
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
-var radius = canvas.height / 2;
-ctx.translate(radius, radius);
-radius = radius * 0.90
-drawClock();
 
-function drawClock() {
-  ctx.arc(0, 0, radius, 0 , 2 * Math.PI);
-  ctx.fillStyle = "white";
-  ctx.fill();
-}
 
-function drawClock(){
-	drawFace(ctx, radius);
-  drawTime(ctx, radius);
-  drawHand(ctx, pos, length, width);
-}
-
-function drawFace(ctx, radius) {
-  var grad;
-
-  <input type="clockFace" src="https://files.slack.com/files-pri/T6MPGUPFW-FSE4UFRNY/image.png" alt="picture" />
-}
-ctx.beginPath();
-ctx.arc(0, 0, radius, 0, 2 * Math.PI);
-ctx.fillStyle = 'white';
-ctx.fill();
-
-function drawTime(ctx, radius){
-  var now = new Date();
-  var hour = now.getHours();
-  var minute = now.getMinutes();
-  var second = now.getSeconds();
-  //hour
-  hour = hour%12;
-  hour = (hour*Math.PI/6)+(minute*Math.PI/(6*60))+(second*Math.PI/(360*60));
-  drawHand(ctx, hour, radius*0.5, radius*0.07);
-  //minute
-  minute = (minute*Math.PI/30)+(second*Math.PI/(30*60));
-  drawHand(ctx, minute, radius*0.8, radius*0.07);
-  // second
-  second = (second*Math.PI/30);
-  drawHand(ctx, second, radius*0.9, radius*0.02);
-}
-
-function drawHand(ctx, pos, length, width) {
-    ctx.beginPath();
-    ctx.lineWidth = width;
-    ctx.lineCap = "round";
-    ctx.moveTo(0,0);
-    ctx.rotate(pos);
-    ctx.lineTo(0, -length);
-    ctx.stroke();
-    ctx.rotate(-pos);
-}
-</script>
-
-</body>
+  </body>
 </html>
+
