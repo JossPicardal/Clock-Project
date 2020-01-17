@@ -239,8 +239,8 @@ p {
 .pendulum-swing{  
   -webkit-transform-origin:50% -40px;  
   transform-origin:50% -40px;   
-  -webkit-animation: swing 1s ease-in-out infinite alternate;
-  animation: swing 1s ease-in-out infinite alternate; 
+  -webkit-animation: swing .01s ease-in-out infinite alternate;
+  animation: swing .01s ease-in-out infinite alternate; 
   height:100%;
   z-index:0;
   position:absolute;
